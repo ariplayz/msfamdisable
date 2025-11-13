@@ -4,9 +4,9 @@ namespace msfamdisable_win11;
 
 class Program
 {
+    public static string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
     static int Main(string[] args)
     {
-        string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
         
         Console.WriteLine("MSFamDisable 1.0");
         Console.WriteLine("by Ari Cummings");

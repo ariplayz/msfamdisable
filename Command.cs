@@ -55,7 +55,7 @@ public class Command
         Set($"$ACL = Get-ACL '{path}'");
         Run();
 
-        Set("$Group = New-Object System.Security.Principal.NTAccount('Builtin', 'Administrators')");
+        Set($"$Group = New-Object System.Security.Principal.NTAccount('{Program.userName}')");
         Run();
 
         Set("$ACL.SetOwner($Group)");
