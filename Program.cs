@@ -24,9 +24,12 @@ class Program
         Dictionary<int, string> paths = new Dictionary<int, string>();
         paths.Add(1, @"C:\Program Files\WindowsApps\microsoftcorporationii.microsoftfamily_0.2.40.0_x64__8wekyb3d8bbwe\FamilyHub.exe");
         paths.Add(2, @"C:\Program Files\WindowsApps\AppleInc.iCloud_15.5.23.0_x64__nzyj5cx40ttqa\iCloud\WebView2\msedge.dll");
+        paths.Add(3, @"C:\Users\" + userName + @"\AppData\Local\Packages\MicrosoftCorporationII.MicrosoftFamily_8wekyb3d8bbwe");
+        paths.Add(4, @"C:\Program Files\WindowsApps\microsoftcorporationii.microsoftfamily_0.2.40.0_x64__8wekyb3d8bbwe");
+        paths.Add(5, @"C:\Program Files\WindowsApps\microsoftcorporationii.microsoftfamily_0.2.40.0_neutral_~_8wekyb3d8bbwe");
+        paths.Add(6, @"C:\Program Files\WindowsApps\microsoftcorporationii.microsoftfamily_0.2.40.0_neutral_~_8wekyb3d8bb");
         
-        
-        
+        //
         
         return 0;
     }
