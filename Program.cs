@@ -29,7 +29,7 @@ class Program
         paths.Add(5, @"C:\Program Files\WindowsApps\microsoftcorporationii.microsoftfamily_0.2.40.0_neutral_~_8wekyb3d8bbwe");
         paths.Add(6, @"C:\Program Files\WindowsApps\microsoftcorporationii.microsoftfamily_0.2.40.0_neutral_~_8wekyb3d8bb");
         
-        //
+        //Get-ChildItem -Path "C:\YourDirectory" -Filter "*report*" to search with powershell
         
         return 0;
     }
