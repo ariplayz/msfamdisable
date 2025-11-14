@@ -2,21 +2,19 @@
 
 # 🛡️ MSFamDisable
 
-### *Take Control of Your Windows 11 System*
+### *Take Back Control of Your Windows 11 PC*
 
 [![.NET Version](https://img.shields.io/badge/.NET-9.0-512BD4?style=for-the-badge&logo=dotnet)](https://dotnet.microsoft.com/)
 [![Platform](https://img.shields.io/badge/Windows-11-0078D6?style=for-the-badge&logo=windows)](https://www.microsoft.com/windows)
 [![License](https://img.shields.io/badge/License-GPL%20v3-blue?style=for-the-badge)](LICENSE)
 
-**A powerful utility to disable Windows Family Features by managing system files with administrative precision.**
+**A powerful utility to disable Windows Family Features and parental controls by managing system files with administrative precision.**
 
-[Features](#-features) • [Installation](#-installation) • [Usage](#-usage) • [API](#-api-reference) • [Warning](#-warning)
+[Usage](#-usage) • [API](#-api-reference) • [Warning](#-warning)
 
 </div>
 
 ---
-
-## ✨ Features
 
 <table>
 <tr>
@@ -36,13 +34,13 @@ Removes files and directories with recursive force options—no confirmations ne
 <tr>
 <td width="50%">
 
-### ⚡ PowerShell Integration
-Seamlessly executes PowerShell commands for system-level operations.
+### ⚡ Remove Parental Controls
+Goes through all common files, registry keys, and scheduled tasks for Family Features and removes them.
 
 </td>
 <td width="50%">
 
-### 🔑 Auto-Elevation
+### 🔑 Requires Elevation
 Automatically requests administrator privileges via application manifest.
 
 </td>
@@ -61,30 +59,11 @@ Automatically requests administrator privileges via application manifest.
 
 ### Dependencies
 
-| Package | Version |
-|---------|---------|
-| `System.Management` | 10.0.0 |
+| Package                        | Version |
+|--------------------------------|---------|
+| `System`                       | 9.0.0 |
+| `System.Management`            | 10.0.0 |
 | `System.Management.Automation` | 7.5.4 |
-
----
-
-## 🚀 Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/msfamdisable-win11.git
-   ```
-
-2. **Build the project**
-   ```bash
-   cd msfamdisable-win11
-   dotnet build
-   ```
-
-3. **Run as Administrator**
-   ```bash
-   dotnet run
-   ```
 
 ---
 
@@ -94,7 +73,7 @@ Automatically requests administrator privileges via application manifest.
 MSFamDisable 1.0
 by Ari Cummings
 
-Running on user: DOMAIN\Username
+Running on user: (username)
 This will disable Family Features by removing the executables and libraries
 Continue? (Y/N)
 ```
@@ -245,6 +224,6 @@ Task Scheduler Library\Microsoft\Windows\ParentalControls\* (all tasks)
 
 <div align="center">
 
-**Made with ❤️ for system administrators and power users**
+**Made with ❤️ and Open Source to bypass and remove parental restriction.**
 
 </div>
