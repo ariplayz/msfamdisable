@@ -115,8 +115,8 @@ cmd.TakeOwn(@"C:\Windows\System32\example.dll");
 
 **Process:**
 1. Retrieves current ACL (Access Control List)
-2. Creates `Builtin\Administrators` NTAccount object
-3. Sets owner to Administrators group
+2. Creates NTAccount object for current user
+3. Sets owner to current user
 4. Applies modified ACL to the file
 
 ---
@@ -142,6 +142,84 @@ cmd.Run();
 ```
 
 Programmatically executes PowerShell scripts with output logging.
+
+---
+
+### `RegEdit` Class
+
+#### `DeleteKey(string path)`
+```csharp
+// Remove registry key and all subkeys
+regEdit.DeleteKey(@"HKLM:\SOFTWARE\Microsoft\FamilyStore");
+```
+
+#### `CreateValue(string path, string name, string value, string propertyType = "DWORD")`
+```csharp
+// Create a registry value
+regEdit.CreateValue(@"HKLM:\SOFTWARE\Example", "Setting", "1", "DWORD");
+```
+
+#### `SetValue(string path, string name, string value)`
+```csharp
+// Modify existing registry value
+regEdit.SetValue(@"HKLM:\SOFTWARE\Example", "Setting", "0");
+```
+
+---
+
+### `TaskSchedulerEdit` Class
+
+#### `UnregisterTask(string taskName, string taskPath = "\\")`
+```csharp
+// Remove a scheduled task
+taskScheduler.UnregisterTask("TaskName", @"\Microsoft\Windows\");
+```
+
+#### `DisableTask(string taskName, string taskPath = "\\")`
+```csharp
+// Disable a scheduled task without removing it
+taskScheduler.DisableTask("TaskName", @"\Microsoft\Windows\");
+```
+
+#### `EnableTask(string taskName, string taskPath = "\\")`
+```csharp
+// Enable a previously disabled task
+taskScheduler.EnableTask("TaskName");
+```
+
+---
+
+## 🗑️ What Gets Removed
+
+### Files and Directories
+```
+C:\Program Files\WindowsApps\microsoftcorporationii.microsoftfamily_0.2.40.0_x64__8wekyb3d8bbwe\FamilyHub.exe
+C:\Program Files\WindowsApps\AppleInc.iCloud_15.5.23.0_x64__nzyj5cx40ttqa\iCloud\WebView2\msedge.dll
+C:\Users\[Username]\AppData\Local\Packages\MicrosoftCorporationII.MicrosoftFamily_8wekyb3d8bbwe
+C:\Program Files\WindowsApps\microsoftcorporationii.microsoftfamily_0.2.40.0_x64__8wekyb3d8bbwe
+C:\Program Files\WindowsApps\microsoftcorporationii.microsoftfamily_0.2.40.0_neutral_~_8wekyb3d8bbwe
+C:\Program Files\WindowsApps\microsoftcorporationii.microsoftfamily_0.2.40.0_neutral_~_8wekyb3d8bb
+```
+
+### Registry Keys
+```
+HKLM:\SOFTWARE\Microsoft\FamilyStore
+HKCU:\Software\Microsoft\FamilyStore
+HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\Applications\MicrosoftCorporationII.MicrosoftFamily_*
+HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\PackageState\*\MicrosoftCorporationII.MicrosoftFamily_*
+HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\LogonUI\Notifications\BackgroundCapability\*\Global.FamilyValueProp.*
+HKCR:\Extensions\ContractId\Windows.BackgroundTasks\PackageId\MicrosoftCorporationII.MicrosoftFamily_*
+HKCR:\Extensions\ContractId\Windows.Launch\PackageId\MicrosoftWindows.Client.Core_*\ActivatableClassId\Global.FamilyValueProp.*
+HKCR:\Local Settings\MrtCache\*\MicrosoftCorporationII.MicrosoftFamily_*
+HKCR:\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppContainer\Storage\microsoftcorporationii.microsoftfamily_*
+HKCR:\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppModel\PackageRepository\Extensions\windows.protocol\ms-family
+HKCR:\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppModel\PackageRepository\Packages\MicrosoftCorporationII.MicrosoftFamily_*
+```
+
+### Scheduled Tasks
+```
+Task Scheduler Library\Microsoft\Windows\ParentalControls\* (all tasks)
+```
 
 ---
 
