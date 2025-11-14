@@ -1,10 +1,11 @@
 ﻿using System.Diagnostics;
 using System.Management.Automation;
+using System.Management.Automation.Runspaces;
 
 namespace msfamdisable_win11;
 public class Command
-{ 
-    private PowerShell cmd = PowerShell.Create();
+{
+    private PowerShell cmd = PowerShell.Create(InitialSessionState.CreateDefault2());
     private Process proc = new Process();
     
     public void Set(string command)
