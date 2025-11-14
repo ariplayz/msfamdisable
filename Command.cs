@@ -5,8 +5,17 @@ using System.Management.Automation.Runspaces;
 namespace msfamdisable_win11;
 public class Command
 {
-    private PowerShell cmd = PowerShell.Create(InitialSessionState.CreateDefault2());
+    private PowerShell? cmd;
     private Process proc = new Process();
+
+    private PowerShell GetPowerShell()
+    {
+        if (cmd == null)
+        {
+            cmd = PowerShell.Create(InitialSessionState.CreateDefault2());
+        }
+        return cmd;
+    }
     
     public void Set(string command)
     {
